@@ -1,0 +1,19 @@
+# Render Blueprint - 训练日记自动部署配置
+# 访问 https://render.com/blueprints 上传此文件一键部署
+
+services:
+  - type: web
+    name: training-journal
+    runtime: node
+    region: oregon
+    plan: free
+    buildCommand: pnpm install && pnpm run build
+    startCommand: node server.js
+    healthCheckPath: /
+    envVars:
+      - key: NODE_VERSION
+        value: "20"
+      - key: JWT_SECRET
+        generateValue: true
+      - key: PORT
+        value: "10000"

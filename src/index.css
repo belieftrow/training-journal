@@ -1,0 +1,574 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ========== Apple-Inspired Design System ========== */
+
+@layer base {
+  :root {
+    /* Background shades */
+    --bg-primary: #f5f5f7;
+    --bg-card: #ffffff;
+    --bg-card-hover: #fafafa;
+    --bg-glass: rgba(255, 255, 255, 0.72);
+
+    /* Text */
+    --text-primary: #1d1d1f;
+    --text-secondary: #86868b;
+    --text-tertiary: #aeaeb2;
+
+    /* Accent */
+    --accent-blue: #0071e3;
+    --accent-blue-hover: #0077ed;
+
+    /* Semantic */
+    --color-red: #ff3b30;
+    --color-orange: #ff9500;
+    --color-purple: #af52de;
+    --color-green: #34c759;
+    --color-blue: #007aff;
+
+    /* Shadows - layered depth */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
+    --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+    --shadow-xl: 0 24px 64px rgba(0, 0, 0, 0.12), 0 4px 16px rgba(0, 0, 0, 0.04);
+
+    /* Radius */
+    --radius-xs: 6px;
+    --radius-sm: 10px;
+    --radius-md: 16px;
+    --radius-lg: 22px;
+    --radius-xl: 28px;
+    --radius-2xl: 36px;
+
+    /* Spacing rhythm */
+    --space-unit: 4px;
+
+    /* Transitions */
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-out-back: cubic-bezier(0.34, 1.56, 0.64, 1);
+    --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    /* shadcn compat */
+    --background: 240 5% 96%;
+    --foreground: 240 3% 12%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 3% 12%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 3% 12%;
+    --primary: 211 100% 45%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 240 5% 92%;
+    --secondary-foreground: 240 3% 12%;
+    --muted: 240 5% 94%;
+    --muted-foreground: 240 4% 53%;
+    --accent: 240 5% 94%;
+    --accent-foreground: 240 3% 12%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 240 5% 90%;
+    --input: 240 5% 90%;
+    --ring: 211 100% 45%;
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --bg-primary: #000000;
+    --bg-card: #1c1c1e;
+    --bg-card-hover: #2c2c2e;
+    --bg-glass: rgba(28, 28, 30, 0.72);
+    --text-primary: #f5f5f7;
+    --text-secondary: #98989d;
+    --text-tertiary: #6e6e73;
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.5);
+    --shadow-xl: 0 24px 64px rgba(0, 0, 0, 0.6);
+    --background: 0 0% 0%;
+    --foreground: 240 5% 96%;
+    --card: 240 3% 11%;
+    --card-foreground: 240 5% 96%;
+    --popover: 240 3% 11%;
+    --popover-foreground: 240 5% 96%;
+    --secondary: 240 3% 18%;
+    --secondary-foreground: 240 5% 96%;
+    --muted: 240 3% 16%;
+    --muted-foreground: 240 4% 60%;
+    --accent: 240 3% 16%;
+    --accent-foreground: 240 5% 96%;
+    --border: 240 3% 20%;
+    --input: 240 3% 20%;
+  }
+}
+
+/* ========== Base Styles ========== */
+
+@layer base {
+  * {
+    @apply border-border;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: var(--bg-primary);
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
+      "Helvetica Neue", "PingFang SC", "Microsoft YaHei", sans-serif;
+    line-height: 1.47059;
+    letter-spacing: -0.022em;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    overscroll-behavior: none;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.12);
+    border-radius: 100px;
+  }
+  .dark ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.12);
+  }
+}
+
+/* ========== Custom Utilities ========== */
+
+@layer utilities {
+  .glass-surface {
+    background: var(--bg-glass);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* ========== Animations ========== */
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.3;
+  }
+  100% {
+    transform: scale(0.95);
+    opacity: 0.7;
+  }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes slide-up {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes number-count {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes bar-grow {
+  from { transform: scaleY(0); }
+  to { transform: scaleY(1); }
+}
+
+@keyframes gentle-float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s var(--ease-out-expo) both;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.4s var(--ease-out-expo) both;
+}
+
+.animate-scale-in {
+  animation: scale-in 0.4s var(--ease-out-back) both;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.5s var(--ease-out-expo) both;
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.04) 50%, transparent 100%);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Stagger children */
+.stagger-1 { animation-delay: 0.05s; }
+.stagger-2 { animation-delay: 0.1s; }
+.stagger-3 { animation-delay: 0.15s; }
+.stagger-4 { animation-delay: 0.2s; }
+.stagger-5 { animation-delay: 0.25s; }
+.stagger-6 { animation-delay: 0.3s; }
+.stagger-7 { animation-delay: 0.35s; }
+.stagger-8 { animation-delay: 0.4s; }
+
+/* ========== Record Button ========== */
+
+.record-button {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: var(--accent-blue);
+  border: none;
+  cursor: pointer;
+  transition: all 0.35s var(--ease-out-expo);
+  box-shadow:
+    0 8px 32px rgba(0, 113, 227, 0.3),
+    0 2px 8px rgba(0, 113, 227, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.record-button::before {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  background: rgba(0, 113, 227, 0.08);
+  animation: pulse-ring 2.5s ease-in-out infinite;
+  z-index: -1;
+}
+
+.record-button:hover {
+  transform: scale(1.04);
+  box-shadow:
+    0 12px 40px rgba(0, 113, 227, 0.4),
+    0 4px 12px rgba(0, 113, 227, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.record-button:active {
+  transform: scale(0.96);
+  transition: all 0.15s var(--ease-out-expo);
+  box-shadow:
+    0 4px 16px rgba(0, 113, 227, 0.25),
+    inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.record-button-text {
+  font-size: 17px;
+  font-weight: 590;
+  color: white;
+  letter-spacing: -0.01em;
+}
+
+.record-button-icon {
+  font-size: 36px;
+  line-height: 1;
+  color: white;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.1));
+}
+
+/* ========== Workout Type Chip ========== */
+
+.type-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  transition: all 0.2s var(--ease-out-expo);
+  cursor: pointer;
+  border: 1.5px solid transparent;
+}
+
+.type-chip:hover {
+  transform: translateY(-1px);
+}
+
+.type-chip.selected {
+  border-color: currentColor;
+}
+
+/* ========== Card ========== */
+
+.app-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s var(--ease-out-expo);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.dark .app-card {
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.app-card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.app-card.interactive:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* ========== Stat Bar ========== */
+
+.stat-bar {
+  height: 100%;
+  border-radius: 4px 4px 0 0;
+  min-width: 28px;
+  transform-origin: bottom;
+  animation: bar-grow 0.6s var(--ease-out-back) both;
+  transition: height 0.4s var(--ease-out-expo);
+}
+
+/* ========== Dialog Overlay ========== */
+
+.dialog-overlay {
+  background: rgba(0, 0, 0, 0.32);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.dialog-content {
+  background: var(--bg-card);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-xl);
+  animation: slide-up 0.35s var(--ease-out-expo) both;
+}
+
+/* ========== Intensity Dots ========== */
+
+.intensity-dot {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s var(--ease-out-expo);
+  color: var(--text-secondary);
+  background: transparent;
+}
+
+.intensity-dot:hover {
+  transform: scale(1.1);
+}
+
+.intensity-dot.active {
+  transform: scale(1.15);
+  border-color: currentColor;
+}
+
+/* ========== Section Title ========== */
+
+.section-title {
+  font-size: 22px;
+  font-weight: 590;
+  letter-spacing: -0.022em;
+  color: var(--text-primary);
+}
+
+.section-subtitle {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--text-secondary);
+  letter-spacing: -0.01em;
+}
+
+/* ========== Empty State ========== */
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 48px 24px;
+  color: var(--text-secondary);
+}
+
+.empty-state-icon {
+  font-size: 48px;
+  opacity: 0.4;
+}
+
+.empty-state-text {
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* ========== Toast ========== */
+
+.custom-toast {
+  background: var(--bg-card) !important;
+  border: 1px solid rgba(0, 0, 0, 0.06) !important;
+  box-shadow: var(--shadow-lg) !important;
+  border-radius: var(--radius-md) !important;
+  font-family: inherit !important;
+}
+
+/* ========== Progress Ring ========== */
+
+.progress-ring {
+  transform: rotate(-90deg);
+}
+
+.progress-ring-circle {
+  transition: stroke-dashoffset 0.8s var(--ease-out-expo);
+}
+
+/* ========== Tab ========== */
+
+.segment-tab {
+  padding: 8px 20px;
+  border-radius: 100px;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  transition: all 0.25s var(--ease-out-expo);
+  cursor: pointer;
+  color: var(--text-secondary);
+  background: transparent;
+  border: none;
+}
+
+.segment-tab.active {
+  color: white;
+  background: var(--text-primary);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+/* ========== Input ========== */
+
+.app-input {
+  width: 100%;
+  padding: 14px 18px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-primary);
+  border: 1.5px solid transparent;
+  font-size: 16px;
+  font-family: inherit;
+  color: var(--text-primary);
+  outline: none;
+  transition: all 0.2s var(--ease-out-expo);
+  letter-spacing: -0.01em;
+}
+
+.app-input:focus {
+  border-color: var(--accent-blue);
+  background: var(--bg-card);
+  box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.1);
+}
+
+.app-input::placeholder {
+  color: var(--text-tertiary);
+}
+
+.dark .segment-tab.active {
+  background: white;
+  color: black;
+}
+
+/* ========== Suggestion Card ========== */
+
+.suggestion-card {
+  display: flex;
+  gap: 14px;
+  padding: 18px 20px;
+  border-radius: var(--radius-md);
+  background: var(--bg-primary);
+  transition: all 0.25s var(--ease-out-expo);
+  cursor: default;
+}
+
+.suggestion-card:hover {
+  background: var(--bg-card-hover);
+  transform: translateX(4px);
+}
+
+.suggestion-icon {
+  font-size: 28px;
+  line-height: 1;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  background: white;
+  box-shadow: var(--shadow-sm);
+}
+
+.dark .suggestion-icon {
+  background: rgba(255, 255, 255, 0.06);
+}
