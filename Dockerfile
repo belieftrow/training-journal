@@ -2,6 +2,9 @@
 # 使用 Node.js 20 作为基础镜像
 FROM node:20-alpine
 
+# 安装构建依赖（用于编译 better-sqlite3）
+RUN apk add --no-cache python3 make g++
+
 # 设置工作目录
 WORKDIR /app
 
