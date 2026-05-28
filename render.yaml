@@ -7,7 +7,7 @@ services:
     runtime: node
     region: oregon
     plan: free
-    buildCommand: pnpm install && pnpm run build
+    buildCommand: npm install && npm run build
     startCommand: node server.js
     healthCheckPath: /
     envVars:
